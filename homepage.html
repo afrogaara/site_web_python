@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+ 	<title>Homepage</title>
+</head>
+<body>
+	<p>Bem vindo</p>
+	<form method="POST" action=" {{ url_for('post_add')}}"> 		
+		<label>Title: </label></br>
+		<input name="title"></br>
+		<label>content: </label></br>
+		<input name="content"></br>
+		<label>author: </label></br>
+		<input name="author"></br>
+		<input type="submit" value"Submit">
+	</form>
+	{% for post in username %}
+		<h3>{{post.title}}</h3>
+                <h3>{{post.content}}</h3>
+                <h3>{{post.author}}</h3>
+	<a href = "{{ url_for('delete_post', id=post.id)}}">Delete</a>
+	{% endfor %}
+</body>
+</html>
